@@ -3,12 +3,14 @@
   --var-2p-color: #f4ce14;
   --var-1s-color: #ee9972;
   --var-2s-color: #fbdabb;
-  --var-1h-color: #edefee;
+  --var-2h-color: #edefee;
   --var-1h-color: #333333;
   --board-radius: 16px;
   --subtitle: 40px;
   --meduimFont: 18px;
   --pargraph: 16px;
+  --margin: 10px 200px;
+  --padding: 15px 5px;
 }
 body {
   margin: 0;
@@ -27,5 +29,220 @@ code {
 p {
   font-size: var(--pargraph);
   line-height: 1.5;
-  max-width: 65ch;
+  max-width: 30ch;
+}
+
+nav {
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
+  align-items: center;
+  height: 90px;
+}
+ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+a {
+  text-decoration: none;
+  color: var(--var-1h-color);
+  font-weight: bold;
+  transition: 0.4s;
+}
+a:hover {
+  color: var(--var-2p-color);
+}
+.Hero {
+  background: var(--var-1p-color);
+}
+.Hero div {
+  margin: var(--margin);
+  padding: var(--padding);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.Hero div h1 {
+  font-size: var(--subtitle);
+  font-weight: bold;
+  color: var(--var-2p-color);
+  margin: 0;
+}
+.Hero div h2 {
+  font-size: var(--meduimFont);
+  color: var(--var-2h-color);
+  margin: 0;
+}
+
+.Hero div p {
+  color: var(--var-2h-color);
+  margin: 0;
+}
+
+button {
+  background-color: var(--var-2p-color);
+  color: var(--var-1h-color);
+  border: none;
+  border-radius: var(--board-radius);
+  width: 150px;
+  height: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+}
+button:hover {
+  color: var(--var-2p-color);
+  background-color: var(--var-1h-color);
+}
+.cta {
+  position: relative;
+  margin-bottom: 30px;
+}
+.cta img {
+  position: absolute;
+  right: 200px;
+  top: 20px;
+  border-radius: var(--board-radius);
+}
+.sec {
+  margin: var(--margin);
+}
+.sec .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.heading h1 {
+  font-size: var(--subtitle);
+  font-weight: bold;
+}
+.dishes {
+  display: flex;
+  justify-content: space-around;
+  justify-items: center;
+}
+.card {
+  width: 300px;
+  background-color: var(--var-2h-color);
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  border-radius: var(--board-radius);
+}
+.card img {
+  width: 300px;
+  height: 200px;
+}
+.card .title {
+  display: flex;
+  justify-content: space-s;
+  justify-items: center;
+
+  margin: 0 15px;
+}
+.card p {
+  margin: 0 15px;
+  color: var(--var-1p-color);
+}
+.card .title h1,
+h6 {
+  margin: 0;
+  color: var(--var-1h-color);
+}
+.online {
+  margin: 0px 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.online img {
+  height: 20px;
+  width: 20px;
+  transform: scaleX(-1);
+}
+.parg {
+  height: 130px;
+}
+.online {
+  margin-bottom: 20px;
+}
+.title p {
+  color: var(--var-1s-color);
+}
+.form {
+  display: grid;
+  max-width: 200px;
+  gap: 20px;
+  border: 1px solid var(--var-1h-color);
+  width: 400px;
+  padding: 15px;
+  border-top-right-radius: var(--board-radius);
+  border-bottom-right-radius: var(--board-radius);
+  height: 470px;
+}
+.formContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--var-2h-color);
+}
+.ChicagoContainer {
+  position: relative;
+  background-image: url("./icons_assets/restaurant.jpg");
+  height: 500px;
+  background-size: cover;
+  width: 300px;
+  border-top-left-radius: var(--board-radius);
+  border-bottom-left-radius: var(--board-radius);
+}
+.Chicago {
+  background-color: var(--var-2h-color);
+  height: 500px;
+  opacity: 0.5;
+}
+.ChicagoContainer .details {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--var-1p-color);
+}
+.form form div {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form form p {
+  color: red;
+  font-size: 14px;
+  margin: 0;
+}
+.succes {
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: #495e5782;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.succes p {
+  text-align: center;
+  margin: 0 auto;
+  color: #495e57;
+}
+.succes h1 {
+  color: var(--var-1h-color);
 }
