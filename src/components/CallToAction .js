@@ -14,7 +14,7 @@ function CallToAction() {
           <h1>Little Lemon</h1>
           <h2>Chicago</h2>
           <p>
-            We are FAmily Owned mediterranean resurant, <br /> focused on
+            We are Family owned mediterranean resurant, <br /> focused on
             traditional receipe served with a modern twist
           </p>
           <Button clickHanler={clickHanler}> Reserve a Table</Button>

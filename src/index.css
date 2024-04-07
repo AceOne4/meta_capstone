@@ -246,3 +246,82 @@ h6 {
 .succes h1 {
   color: var(--var-1h-color);
 }
+
+.footer {
+  margin-top: 100px;
+  background-color: var(--var-2h-color);
+  padding: 50px 0;
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.footer__section {
+  margin-right: 20px;
+}
+
+.footer__heading {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--var-1h-color);
+}
+
+.footer__social-icons {
+  display: flex;
+}
+
+.footer__social-icon {
+  margin-right: 10px;
+  font-size: 24px;
+  color: var(--var-1h-color);
+  text-decoration: none;
+}
+
+.footer__social-icon:hover {
+  color: #007bff;
+}
+
+.footer__copyright {
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: var(--var-1p-color);
+  display: flex;
+  justify-content: flex-end;
+}
+.footer p {
+  color: var(--var-1p-color);
+}
+
+.backHome {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  height: 30px;
+  width: 30px;
+  background: var(--var-2h-color);
+  text-align: center;
+  border-radius: var(--board-radius);
+  line-height: 1.7;
+  color: var(--var-1h-color);
+  transition: 0.4s;
+}
+.backHome:hover {
+  background-color: var(--var-1h-color);
+  color: var(--var-2h-color);
+}
+
+/*small devices*/
+@media (min-width: 576px) {
+}
+/* Medium devices */
+@media (min-width: 768px) {
+}
+/* Large devices  */
+@media (min-width: 992px) {
+}

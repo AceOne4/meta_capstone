@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 
-export default function BookingForm({ onsubmit, updateTimes }) {
+export default function BookingForm({ onsubmit, updateTimes, availableTimes }) {
   const [data, setData] = useState({
     date: "",
     numOfGuests: 0,
@@ -32,10 +32,11 @@ export default function BookingForm({ onsubmit, updateTimes }) {
       isValid = false;
     }
     setErrors(newErrors);
-    return isValid;
+    return isValid && document.querySelector("form").checkValidity();
   };
   const dateHandler = (e) => {
     setData({ ...data, date: e.target.value });
+    updateTimes(e.target.value);
   };
   const timeHandler = (e) => {
     setData({ ...data, selectedTime: e.target.value });
@@ -70,6 +71,7 @@ export default function BookingForm({ onsubmit, updateTimes }) {
             id="res-date"
             value={data.date}
             onChange={dateHandler}
+            required
           />
           {errors.date && <p>{errors.date}</p>}
         </div>
@@ -79,14 +81,12 @@ export default function BookingForm({ onsubmit, updateTimes }) {
             id="res-time"
             value={data.selectedTime}
             onChange={timeHandler}
+            required
           >
             <option>Choose Time</option>
-            <option>17:00</option>
-            <option>18:00</option>
-            <option>19:00</option>
-            <option>20:00</option>
-            <option>21:00</option>
-            <option>22:00</option>
+            {availableTimes?.map((time) => {
+              return <option key={time}>{time}</option>;
+            })}
           </select>
           {errors.time && <p>{errors.time}</p>}
         </div>
@@ -95,11 +95,12 @@ export default function BookingForm({ onsubmit, updateTimes }) {
           <input
             type="number"
             placeholder="0"
-            min="0"
+            min="1"
             max="10"
             id="guests"
             value={data.numOfGuests}
             onChange={guestsHandler}
+            required
           />
           {errors.guests && <p>{errors.guests}</p>}
         </div>
@@ -109,6 +110,7 @@ export default function BookingForm({ onsubmit, updateTimes }) {
             id="occasion"
             value={data.occasion}
             onChange={occasionHandler}
+            required
           >
             <option>Occasion</option>
             <option>Birthday</option>

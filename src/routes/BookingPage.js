@@ -1,13 +1,12 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState, useEffect } from "react";
 import BookingForm from "../components/BookingForm";
 import Chicago from "../components/Chicago";
 import Succes from "../components/Succes";
-
-const UPDATE_TIMES = "UPDATE_TIMES";
+import { fetchAPI, submitAPI } from "../API/API";
 const timesReducer = (state, action) => {
   switch (action.type) {
-    case UPDATE_TIMES:
-      return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+    case "UPDATE_TIMES":
+      return action.payload;
     default:
       return state;
   }
@@ -15,28 +14,50 @@ const timesReducer = (state, action) => {
 
 function BookingPage() {
   const [succes, setSucces] = useState(false);
-  const [availableTimes, dispatchTimes] = useReducer(
-    timesReducer,
-    initializeTimes
-  );
-  function initializeTimes() {
-    return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-  }
-  function updateTimes() {
-    dispatchTimes({ type: UPDATE_TIMES });
-  }
-  const onsubmit = (reservation) => {
-    if (reservation) {
-      console.log(reservation);
-      setSucces(true);
+
+  const [availableTimes, dispatch] = useReducer(timesReducer, []);
+  useEffect(() => {
+    const initializeTimes = async () => {
+      try {
+        const today = new Date();
+        const todayString = today.toISOString().slice(0, 10);
+        const times = await fetchAPI(todayString);
+        dispatch({ type: "UPDATE_TIMES", payload: times });
+      } catch (error) {
+        console.error("Error initializing times:", error);
+      }
+    };
+
+    initializeTimes();
+  }, []);
+  const updateTimes = async (selectedDate) => {
+    try {
+      const times = await fetchAPI(selectedDate);
+      dispatch({ type: "UPDATE_TIMES", payload: times });
+    } catch (error) {
+      console.error("Error updating times:", error);
     }
   };
-
+  const onsubmit = async (reservation) => {
+    try {
+      const formSubmit = await submitAPI(reservation);
+      if (formSubmit) {
+        setSucces(true);
+      }
+    } catch (error) {
+      console.error("Error submitting form data:", error);
+      return false;
+    }
+  };
   return (
     <section className="formContainer">
       {succes && <Succes />}
       <Chicago />
-      <BookingForm onsubmit={onsubmit} updateTimes={updateTimes} />
+      <BookingForm
+        onsubmit={onsubmit}
+        updateTimes={updateTimes}
+        availableTimes={availableTimes}
+      />
     </section>
   );
 }
