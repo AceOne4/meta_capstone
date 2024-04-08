@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../icons_assets/Logo.svg";
+import { MdOutlineMenu } from "react-icons/md";
 function Nav() {
+  const [openMenu, setOpenMenu] = useState(false);
+  console.log(openMenu);
   return (
     <nav>
       <img src={logo} alt="logo" />
-      <ul>
+      <ul className="nav">
         <li>
           <a href="/">Home</a>
         </li>
@@ -24,6 +27,10 @@ function Nav() {
           <a href="/">Login</a>
         </li>
       </ul>
+      <MdOutlineMenu
+        className="sandwich"
+        onClick={() => setOpenMenu(!openMenu)}
+      />
     </nav>
   );
 }

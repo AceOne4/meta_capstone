@@ -1,5 +1,3 @@
-// api.js
-
 // Function to fetch available reservation times for the provided date
 function fetchAPI(date) {
   // Simulate fetching data from a server
@@ -27,5 +25,4 @@ function submitAPI(formData) {
   });
 }
 
-// Export functions to make them accessible in other files if needed
 export { fetchAPI, submitAPI };

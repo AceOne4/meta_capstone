@@ -102,8 +102,6 @@ describe("BookingForm component", () => {
     expect(guestsInput).toHaveAttribute("min", "1");
     expect(guestsInput).toHaveAttribute("max", "10");
   });
-
-  // You can write similar tests for occasion select, but it doesn't have any specific HTML5 validation attributes
 });
 describe("BookingForm validation", () => {
   test("validates date input", () => {
@@ -152,6 +150,4 @@ describe("BookingForm validation", () => {
     fireEvent.change(guestsInput, { target: { value: "4" } });
     expect(guestsInput).toBeValid();
   });
-
-  // Add similar tests for occasion select if additional validation is implemented
 });
