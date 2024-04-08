@@ -111,19 +111,11 @@ describe("BookingForm validation", () => {
     // Invalid state: empty date
     fireEvent.change(dateInput, { target: { value: "" } });
     expect(dateInput).toBeInvalid();
-
-    // Valid state: non-empty date
-    // fireEvent.change(dateInput, { target: { value: "2024-04-15" } });
-    // expect(dateInput).toBeValid();
   });
 
   test("validates time select", () => {
     render(<BookingForm />);
     const timeSelect = screen.getByLabelText("Choose time");
-
-    // Invalid state: empty time
-    // fireEvent.change(timeSelect, { target: { value: "" } });
-    // expect(timeSelect).toBeInvalid();
 
     // Valid state: non-empty time
     fireEvent.change(timeSelect, { target: { value: "17:00" } });

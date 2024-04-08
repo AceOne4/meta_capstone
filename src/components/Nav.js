@@ -1,9 +1,6 @@
-import React, { useState } from "react";
 import logo from "../icons_assets/Logo.svg";
 import { MdOutlineMenu } from "react-icons/md";
-function Nav() {
-  const [openMenu, setOpenMenu] = useState(false);
-  console.log(openMenu);
+function Nav({ setOpenMenu, openMenu }) {
   return (
     <nav>
       <img src={logo} alt="logo" />

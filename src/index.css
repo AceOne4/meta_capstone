@@ -319,11 +319,11 @@ h6 {
   display: none;
 }
 .san {
-  display: none;
+  transition: 0.4s;
 }
 /*small devices*/
 @media (max-width: 576px) {
-  ul {
+  .nav {
     display: none;
   }
   .sandwich {
@@ -331,13 +331,9 @@ h6 {
     width: 40px;
     height: 40px;
   }
-  .sandwich:hover {
-    color: blue;
-  }
-  .sandwich:target + .san {
+
+  .san {
     display: block;
-    background-color: var(--var-2s-color);
-    margin-bottom: 0;
   }
 }
 /* Medium devices */
